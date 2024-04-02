@@ -46,11 +46,13 @@
     "typescript": "^5.4.3"
   },
   "dependencies": {
+    "@eatonfyi/serializers": "github:eaton/serializers",
     "@iarna/toml": "^2.2.5",
     "@sindresorhus/is": "^6.2.0",
     "@types/iarna__toml": "^2.0.5",
     "@types/ini": "^4.1.0",
     "@types/plist": "^3.0.5",
+    "bson": "^6.6.0",
     "csv-parse": "^5.5.5",
     "csv-stringify": "^6.4.6",
     "entities": "^4.5.0",

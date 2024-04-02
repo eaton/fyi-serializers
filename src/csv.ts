@@ -8,9 +8,10 @@ const stringifyOpt: StringifyOptions = {};
 const parseOpt: ParseOptions = {
   autoParse: true,
   cast: true,
+  groupColumnsByName: true,
 };
 
-export const Csv: JetpackSerializer = {
+export const Csv: JetpackSerializer<unknown[], Record<string, unknown>[]> = {
   validate: (data: unknown) => isArray(data),
   parse: (data: string, columns: boolean = true) =>
     parse(data, { ...parseOpt, delimiter: ',', columns }),
@@ -19,7 +20,7 @@ export const Csv: JetpackSerializer = {
       ...stringifyOpt,
       delimiter: ',',
       objectMode: is.plainObject(input[0]),
-      header: is.plainObject(input[0]),
+      header: is.plainObject(input[0])
     }),
 };
 

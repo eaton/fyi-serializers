@@ -1,0 +1,26 @@
+{
+  title: "JSON5 document", // Inline comment
+  number: 100.1,
+  boolean: true,
+  date: "2024/01/01",
+  array: ["tag1", "tag2"],
+  obj: {
+    key1: "value1",
+    key2: "value2"
+  },
+  
+  /** 
+   * Whitespace with multi-line comment
+   */
+    
+  objArray": [
+    { key1: "value1", key2: "value2" },
+    { key1: "value1", key2: "value2" }
+  ],
+  lineBreaks: "Look, Mom! \
+No \\n's!",
+  hexadecimal: 0xdecaf,
+  positiveSign: +1,
+  leadingDecimal: .8675309,
+  trailingDecimal: 8675309.,
+}

@@ -1,0 +1,26 @@
+title = "TOML Example" # TOML comment
+
+[primitives]
+boolean = true
+integer = 1234
+float = 1234.1
+date = 2000-02-14T07:32:00-08:00
+day = 2000-02-14
+
+[structures]
+array = [ 8000, 8001, 8002 ]
+object = { val1 = 79.5, val2 = 72.0 }
+deeply.nested = "value"
+
+[features]
+lines = '''
+The first newline is
+trimmed in raw strings.
+All other whitespace
+is preserved.
+'''
+negativeinfinity = -inf
+not_a_number = nan
+hex = 0xDEADBEEF
+1234 = "numeric key"
+
