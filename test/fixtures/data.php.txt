@@ -1,5 +1,1 @@
-a:4:{s:5:"title";s:12:"TOML Example";s:10:"primitives";a:5:{s:7:"boolean";b:1;s:7:"integer";i:1234;s:5:"float";d:1234.1;s:4:"date";N;s:3:"day";N;}s:10:"structures";a:3:{s:5:"array";a:3:{i:0;i:8000;i:1;i:8001;i:2;i:8002;}s:6:"object";a:2:{s:4:"val1";d:79.5;s:4:"val2";i:72;}s:6:"deeply";a:1:{s:6:"nested";s:5:"value";}}s:8:"features";a:5:{i:1234;s:11:"numeric key";s:5:"lines";s:80:"The first newline is
-trimmed in raw strings.
-All other whitespace
-is preserved.
-";s:16:"negativeinfinity";i:-Infinity;s:12:"not_a_number";N;s:3:"hex";i:3735928559;}}
+a:7:{s:5:"title";s:8:"PHP Test";s:7:"integer";i:123;s:5:"float";d:123.4;s:7:"boolean";b:1;s:12:"booleanFalse";b:0;s:5:"array";a:4:{i:0;i:1;i:1;i:2;i:2;i:3;i:3;s:4:"four";}s:6:"object";a:1:{s:3:"key";s:5:"value";}}
