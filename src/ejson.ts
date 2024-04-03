@@ -1,7 +1,7 @@
-import { EJSON } from 'bson';
+import pkg from 'ejson';
 import { JetpackSerializer } from './shared-types.js';
 
 export const Ejson: JetpackSerializer = {
-  parse: EJSON.parse,
-  stringify: EJSON.stringify,
+  parse: pkg.parse,
+  stringify: pkg.stringify,
 };

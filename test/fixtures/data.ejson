@@ -1,0 +1,1 @@
+{"title":"EJSON Document","number":100.1,"boolean":true,"date":{"$date":949384800000},"array":["tag1","tag2"],"obj":{"key1":"value1","key2":"value2"},"objArray":[{"key1":"value1","key2":"value2"},{"key1":"value1","key2":"value2"}]}

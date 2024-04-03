@@ -13,9 +13,10 @@ None of these serializers are meant to be used with large quantities of data. Fi
 - **`base64`**, is silly easy using builtin functions, but served as a nice demo.
 - **`csv`** and **`tsv`**, via [csv-parse](https://github.com/adaltas/node-csv) and [csv-stringify](https://github.com/adaltas/node-csv).
 - **`json`**, **`json5`**, and **`nsjson`**, via the [json5](https://github.com/json5/json5) project.
-- **`php`**, originally sourced from [php-js](http://phpjs.org/) and updated with light typing and error handling. Various PHP-based CMSs like WOrdpress and Drupal have a tendency to jam saved configuration data into general DB tables using PHP's built in object/array serializer function. This… kind of recreates it.
-- **`ini`**, via the [ini]() project.
-- **`plist`**, via the [plist]() project.
-- **`yaml`**, via the [yaml]() project.
+- **`php`**, Various PHP-based CMSs like Wordpress and Drupal have a tendency to jam internal configuration data into DB tables using PHP's serialize/deserialize functions. The code to decihper these little bundles of joy was found in [php-js](http://phpjs.org/) and updated with improved type-checking typing and error handling.
+- **`ini`**, via the [ini](https://github.com/npm/ini) project.
+- **`plist`**, via the [plist](https://github.com/TooTallNate/plist.js) project.
+- **`yaml`**, via the [yaml](https://github.com/eemeli/yaml) project.
 - **`toml`**, via the [@iarna/toml](https://github.com/iarna/iarna-toml) project.
+- **`ejson`**, and **`bson`** via the [js-bson](https://github.com/mongodb/js-bson) project.
 - **`frontmattter`** in markdown files, in either JSON or YAML format, via the [grey-matter](https://github.com/jonschlinkert/gray-matter) project.
