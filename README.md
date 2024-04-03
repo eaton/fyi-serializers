@@ -1,4 +1,4 @@
-# Quick and dirty serializers
+# Eaton's quick and dirty serializers
 
 A set of handy-if-janky helpers for parsing and stringifying data I run into when spelunking through old archives and/or database snapshots.
 
@@ -10,7 +10,7 @@ None of these serializers are meant to be used with large quantities of data. Fi
 
 ## The Rogues' Gallery
 
-- **`base64`** is silly simple, but serves as a nice demo and occasionally one does run into .bhx
+- **`base64`** is silly simple, but served as a nice demo while I was testing FS-Jetpack integration.
 - **`csv`** and **`tsv`**, via [csv-parse](https://github.com/adaltas/node-csv) and [csv-stringify](https://github.com/adaltas/node-csv). They're configured to assume header columns exist, parse the records to an array of objects, and be forgiving of missing/extra columns from line to line.
 - **`ejson`**, a JSON variant used by MongoDB that can roundtrip dates, regexes, and buffers, via the [ejson](https://github.com/primus/EJSON) project.
 - **`frontmatter`** in markdown files, in either JSON or YAML format, via the [grey-matter](https://github.com/jonschlinkert/gray-matter) project.
