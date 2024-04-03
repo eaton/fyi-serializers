@@ -1,7 +1,6 @@
 import { JsonMap } from '@iarna/toml/index.js';
 import { JetpackSerializer } from './shared-types.js';
 import JSON5 from 'json5';
-import { isArray } from '@sindresorhus/is';
 
 export const Json: JetpackSerializer = {
   parse: JSON.parse,
@@ -23,7 +22,7 @@ export const Json5: JetpackSerializer = {
  * performance intensive stuff.
  */
 export const NdJson: JetpackSerializer<unknown[], JsonMap[]> = {
-  validate: (input: unknown) => isArray(input),
+  validate: (input: unknown) => Array.isArray(input),
   parse: function (data: string) {
     const lines = data.trim().split('\n');
     return lines.map((line) => JSON.parse(line));

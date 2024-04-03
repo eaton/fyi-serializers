@@ -37,7 +37,6 @@
   "author": "eaton",
   "license": "MIT",
   "devDependencies": {
-    "@eatonfyi/fs-jetpack": "github:eaton/fs-jetpack",
     "@types/node": "^20.11.30",
     "ava": "^6.1.2",
     "pkgroll": "^2.0.2",
@@ -46,7 +45,6 @@
     "typescript": "^5.4.3"
   },
   "dependencies": {
-    "@eatonfyi/serializers": "github:eaton/serializers",
     "@iarna/toml": "^2.2.5",
     "@sindresorhus/is": "^6.2.0",
     "@types/iarna__toml": "^2.0.5",

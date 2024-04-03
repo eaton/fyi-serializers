@@ -257,7 +257,6 @@ function serialize(mixed_value: any): string {
           val = 'O' + objname[1].substring(1, objname[1].length - 1);
         }
         */
-
       for (key in mixed_value) {
         if (mixed_value.hasOwnProperty(key)) {
           ktype = _getType(mixed_value[key]);

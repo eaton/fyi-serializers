@@ -1,5 +1,5 @@
 import test from 'ava';
-import jetpack from '@eatonfyi/fs-jetpack';
+import fs from 'node:fs';
 import { Php } from '../src/index.js';
 
 const data = {
@@ -13,8 +13,8 @@ const data = {
 };
 
 test('parse sample file', t => {
-  const raw = jetpack.read('./test/fixtures/data.php.txt');
+  const raw = fs.readFileSync(new URL('./fixtures/data.php.txt', import.meta.url)).toString();
+  
   t.is(raw, Php.stringify(data));
-
   t.deepEqual(Php.parse(raw ?? ''), data);
 })
