@@ -2,18 +2,18 @@ import { JsonMap } from '@iarna/toml/index.js';
 import { JetpackSerializer } from './shared-types.js';
 import JSON5 from 'json5';
 
-export class Json implements JetpackSerializer<string, string> {
+export class Json implements JetpackSerializer<unknown, any> {
   constructor(public space = 0) {}
   parse = JSON.parse;
-  stringify(input: string) {
+  stringify(input: unknown) {
     return JSON.stringify(input, undefined, this.space);
   }
 };
 
-export class Json5 implements JetpackSerializer<string, string> {
+export class Json5 implements JetpackSerializer<unknown, any> {
   constructor(public space = 0) {}
   parse = JSON5.parse;
-  stringify(input: string) {
+  stringify(input: unknown) {
     return JSON.stringify(input, undefined, this.space);
   }
 };
@@ -27,7 +27,7 @@ export class Json5 implements JetpackSerializer<string, string> {
  * to file format handling, so it's a win for now. Just don't lean on it for any
  * performance intensive stuff.
  */
-export class NdJson implements JetpackSerializer<unknown[], JsonMap[]> {
+export class NdJson implements JetpackSerializer<unknown[], any[]> {
   validate = (input: unknown) => Array.isArray(input);
   parse = function (data: string) {
     const lines = data.trim().split('\n');
