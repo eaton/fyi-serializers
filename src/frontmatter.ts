@@ -1,4 +1,4 @@
-import matter, { GrayMatterFile } from 'gray-matter';
+import matter, { GrayMatterFile, GrayMatterOption } from 'gray-matter';
 import { encode, decode } from 'entities';
 import { JetpackSerializer } from './shared-types.js';
 import { isObject } from '@sindresorhus/is';
@@ -8,13 +8,20 @@ export type FrontmatterInput = {
   data: Record<string, unknown>;
 };
 
-export const Frontmatter: JetpackSerializer<
-  FrontmatterInput,
-  GrayMatterFile<string>
-> = {
-  validate: (data: unknown) => isObject(data),
-  parse: (input: string) => matter(input),
-  stringify: (input: FrontmatterInput) => {
+type GreyMatterOptions = GrayMatterOption<matter.Input, {}>;
+
+export class Frontmatter implements JetpackSerializer<FrontmatterInput, GrayMatterFile<matter.Input>> {
+  constructor(public options: GreyMatterOptions = {}) {}
+
+  validate(data: unknown) {
+    return isObject(data);
+  }
+
+  parse(input: string) {
+    return matter(input, this.options);
+  }
+  
+  stringify(input: FrontmatterInput) {
     const { content, data } = input;
 
     // Some exotic characters ... caused problems. We're UTF encoding and then decoding
@@ -24,6 +31,6 @@ export const Frontmatter: JetpackSerializer<
       mode: 0,
     });
 
-    return matter.stringify(scrubbed, data);
-  },
+    return matter.stringify(scrubbed, data, this.options);
+  }
 };

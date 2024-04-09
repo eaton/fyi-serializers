@@ -2,14 +2,20 @@ import { JsonMap } from '@iarna/toml/index.js';
 import { JetpackSerializer } from './shared-types.js';
 import JSON5 from 'json5';
 
-export const Json: JetpackSerializer = {
-  parse: JSON.parse,
-  stringify: JSON.stringify,
+export class Json implements JetpackSerializer<string, string> {
+  constructor(public space = 0) {}
+  parse = JSON.parse;
+  stringify(input: string) {
+    return JSON.stringify(input, undefined, this.space);
+  }
 };
 
-export const Json5: JetpackSerializer = {
-  parse: JSON5.parse,
-  stringify: JSON5.stringify,
+export class Json5 implements JetpackSerializer<string, string> {
+  constructor(public space = 0) {}
+  parse = JSON5.parse;
+  stringify(input: string) {
+    return JSON.stringify(input, undefined, this.space);
+  }
 };
 
 /**
@@ -21,13 +27,13 @@ export const Json5: JetpackSerializer = {
  * to file format handling, so it's a win for now. Just don't lean on it for any
  * performance intensive stuff.
  */
-export const NdJson: JetpackSerializer<unknown[], JsonMap[]> = {
-  validate: (input: unknown) => Array.isArray(input),
-  parse: function (data: string) {
+export class NdJson implements JetpackSerializer<unknown[], JsonMap[]> {
+  validate = (input: unknown) => Array.isArray(input);
+  parse = function (data: string) {
     const lines = data.trim().split('\n');
     return lines.map((line) => JSON.parse(line));
-  },
-  stringify: function (data: unknown[]): string {
+  };
+  stringify = function (data: unknown[]): string {
     return data.map((item) => JSON.stringify(item, undefined, 0)).join('\n');
-  },
+  };
 };

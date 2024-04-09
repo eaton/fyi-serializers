@@ -1,4 +1,4 @@
-export interface JetpackSerializer<Input = any, Output = any> {
+export interface JetpackSerializer<Input = any, Output = any, Options = Record<string, unknown>> {
   validate?: (input: Input) => boolean;
   stringify: (input: Input) => string;
   parse: (input: string) => Output;

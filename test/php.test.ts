@@ -13,8 +13,10 @@ const data = {
 };
 
 test('parse sample file', t => {
+  const parser = new Php();
+
   const raw = fs.readFileSync(new URL('./fixtures/data.php.txt', import.meta.url)).toString();
   
-  t.is(raw, Php.stringify(data));
-  t.deepEqual(Php.parse(raw ?? ''), data);
+  t.is(raw, parser.stringify(data));
+  t.deepEqual(parser.parse(raw ?? ''), data);
 })

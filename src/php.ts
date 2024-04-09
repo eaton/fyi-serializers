@@ -5,10 +5,10 @@ import { JetpackSerializer } from './shared-types.js';
 // but for now, well, it's an unholy abomination and everyone involved should feel bad
 // both that it exists and that it needs to exist.
 
-export const Php: JetpackSerializer = {
-  parse: unserialize,
-  stringify: serialize,
-};
+export class Php implements JetpackSerializer {
+  parse = unserialize;
+  stringify = serialize;
+}
 
 /**
  * Given a string of serialized PHP data, attempt to parse it and return JSON-compatible

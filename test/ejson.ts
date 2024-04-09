@@ -17,17 +17,20 @@ const data = {
 
 test('parse sample file', t => {
   const raw = fs.readFileSync(new URL('./fixtures/data.ejson', import.meta.url)).toString();
+  const parser = new Ejson();
 
-  const fromDisk = Ejson.parse(raw);
-  const stringified = Ejson.stringify(data)
+  const fromDisk = parser.parse(raw);
+  const stringified = parser.stringify(data)
 
   t.deepEqual(fromDisk, data);
   t.is(raw, stringified);
 });
 
 test.failing('buffer roundtrip', t => {
+  const parser = new Ejson();
+
   const b = Buffer.from('Test string');
-  const r = Ejson.parse(Ejson.stringify(b));
+  const r = parser.parse(parser.stringify(b));
 
   t.deepEqual(b, r);
 })

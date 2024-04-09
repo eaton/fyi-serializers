@@ -3,8 +3,9 @@ import fs from 'node:fs';
 import { Yaml } from '../src/index.js';
 
 test('parse sample file', t => {
+  const parser = new Yaml();
   const raw = fs.readFileSync(new URL('./fixtures/data.yaml', import.meta.url)).toString();
-  const data = Yaml.parse(raw);
+  const data = parser.parse(raw);
 
   t.is(data.title, "YAML Data");
 

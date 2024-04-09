@@ -4,7 +4,7 @@ import fs from 'node:fs';
 
 test('parse sample file', t => {
   const raw = fs.readFileSync(new URL('./fixtures/data.csv', import.meta.url)).toString();
-  const data = Csv.parse(raw);
+  const data = new Csv().parse(raw);
   t.is(data.length, 17);
 
   t.deepEqual(
@@ -15,7 +15,7 @@ test('parse sample file', t => {
 
 test('collapsed columns', t => {
   const raw = fs.readFileSync(new URL('./fixtures/data.keys.csv', import.meta.url)).toString();
-  const data = Csv.parse(raw);
+  const data = new Csv().parse(raw);
   t.is(data.length, 2);
   t.deepEqual(data[0].col3, ['test', 'another test']);
 })

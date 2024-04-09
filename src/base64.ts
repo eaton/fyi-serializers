@@ -1,7 +1,21 @@
 import { JetpackSerializer } from './shared-types.js';
+type BufferEncoding =
+| "ascii"
+| "utf8"
+| "utf-8"
+| "utf16le"
+| "utf-16le"
+| "ucs2"
+| "ucs-2"
+| "base64"
+| "base64url"
+| "latin1"
+| "binary"
+| "hex";
 
-export const Base64: JetpackSerializer<string, string> = {
-  validate: (data: unknown) => typeof data === 'string',
-  parse: (input: string) => Buffer.from(input, 'base64').toString('utf8'),
-  stringify: (input: string) => Buffer.from(input, 'utf-8').toString('base64'),
+export class Base64 implements JetpackSerializer<string, string> {
+  constructor(public encoding: BufferEncoding = 'utf8') {}
+  validate = (data: unknown) => typeof data === 'string';
+  parse = (input: string) => Buffer.from(input, 'base64').toString(this.encoding);
+  stringify = (input: string) => Buffer.from(input, this.encoding).toString('base64');
 };

@@ -1,8 +1,15 @@
-import plist from 'plist';
+import plist, { PlistValue, PlistBuildOptions } from 'plist';
+const { parse, build } = plist;
 import { JetpackSerializer } from './shared-types.js';
 
-export const Plist: JetpackSerializer<plist.PlistValue, plist.PlistValue> = {
-  validate: (data: unknown) => true,
-  parse: plist.parse,
-  stringify: plist.build,
+export class Plist implements JetpackSerializer<string, PlistValue> {
+  constructor(public options: PlistBuildOptions = {}) {}
+
+  validate = (data: unknown) => true;
+  parse(input: string) {
+    return parse(input);
+  }
+  stringify(input: PlistValue) {
+    return build(input, this.options);
+  }
 };

@@ -27,9 +27,9 @@ Most of these are exposed as parse/stringify pairs that can be passed into [my f
 
 ```javascript
 import jetpack from '@eatonfyi/fs-jetpack';
-import { Yaml } from '@eatonfy/serializers;
+import { Yaml } from '@eatonfyi/serializers;
 
-jetpack.setSerializer('.yaml', Yaml);
+jetpack.setSerializer('.yaml', new Yaml());
 
 const config = jetpack.read('./my-config.yaml', 'auto');
 

@@ -3,8 +3,10 @@ import fs from 'node:fs';
 import { Toml } from '../src/index.js';
 
 test('parse sample file', t => {
+  const parser = new Toml();
+
   const raw = fs.readFileSync(new URL('./fixtures/data.toml', import.meta.url)).toString();
-  const data = Toml.parse(raw);
+  const data = parser.parse(raw) as any;
 
   t.is(data.title, "TOML Example");
 
