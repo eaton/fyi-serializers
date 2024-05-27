@@ -14,6 +14,4 @@ test('accept empty keys', t => {
   };
 
   t.notThrows(() => parser.stringify(data));
-
-  console.log(parser.stringify(data));
 });
