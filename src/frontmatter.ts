@@ -2,7 +2,7 @@ import matter, { GrayMatterFile, GrayMatterOption } from 'gray-matter';
 import { encode, decode } from 'entities';
 import { JetpackSerializer } from './shared-types.js';
 import { isObject } from '@sindresorhus/is';
-import { withoutEmptyValues } from './util.js';
+import { emptyDeep } from 'empty-deep';
 
 export type FrontmatterInput = {
   content: string;
@@ -32,6 +32,6 @@ export class Frontmatter implements JetpackSerializer<FrontmatterInput, GrayMatt
       mode: 0,
     });
 
-    return matter.stringify(scrubbed, withoutEmptyValues(data) as FrontmatterInput, this.options);
+    return matter.stringify(scrubbed, emptyDeep(data) as FrontmatterInput, this.options);
   }
 };

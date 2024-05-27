@@ -1,6 +1,5 @@
 import test from 'ava';
-import { Frontmatter, FrontmatterInput } from '../src/index.js';
-import { withoutEmptyValues } from '../src/util.js';
+import { Frontmatter } from '../src/index.js';
 
 test('accept empty keys', t => {
   const parser = new Frontmatter();
