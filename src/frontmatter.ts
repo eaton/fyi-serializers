@@ -27,11 +27,11 @@ export class Frontmatter implements JetpackSerializer<FrontmatterInput, GrayMatt
 
     // Some exotic characters ... caused problems. We're UTF encoding and then decoding
     // by default, which — distressingly — seemed to solve the problems.
-    const scrubbed = decode(encode(content, { level: 1, mode: 0 }), {
+    const scrubbed = content ? decode(encode(content, { level: 1, mode: 0 }), {
       level: 1,
-      mode: 0,
-    });
+      mode: 0
+    }) : '';
 
-    return matter.stringify(scrubbed, emptyDeep(data) as FrontmatterInput, this.options);
+    return matter.stringify(content || '', emptyDeep(data) as FrontmatterInput, this.options);
   }
 };
