@@ -28,7 +28,7 @@ const data = {
 };
 
 test('parse sample file', t => {
-  const parser = new Json(2);
+  const parser = new Json(undefined, 2);
   const raw = fs.readFileSync(new URL('./fixtures/data.json', import.meta.url)).toString();
 
   const fromDisk = parser.parse(raw);
