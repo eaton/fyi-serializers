@@ -1,6 +1,6 @@
 import test from 'ava';
 import fs from 'node:fs';
-import { Json } from '../src/index.js';
+import { Json, NdJson } from '../src/index.js';
 
 const data = {
   "title": "JSON Document",
@@ -35,5 +35,19 @@ test('parse sample file', t => {
   const stringified = parser.stringify(data)
 
   t.deepEqual(fromDisk, data);
+  t.is(raw, stringified);
+});
+
+test('parse ndjson', t => {
+  const expected = [
+    { "title": "First record", "value": "Sample value"},
+    { "title": "Second record", "value": "Sample value" }
+  ];
+  const parser = new NdJson();
+  const raw = fs.readFileSync(new URL('./fixtures/data.ndjson', import.meta.url)).toString();
+
+  const fromDisk = parser.parse(raw);
+  const stringified = parser.stringify(expected)
+  t.deepEqual(fromDisk, expected);
   t.is(raw, stringified);
 });
