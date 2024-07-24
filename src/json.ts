@@ -18,7 +18,7 @@ export const jsonDateParser = (key: string, value: unknown) => {
 export class Json implements JetpackSerializer<unknown, any> {
   constructor(public reviver: Reviver | undefined = undefined, public space = 0) {}
   parse(text: string) {
-    return JSON.parse(text, this.reviver);
+    return JSON.parse(text, this.reviver ? jsonDateParser : undefined);
   }
   stringify(input: unknown) {
     return JSON.stringify(input, undefined, this.space);
@@ -49,7 +49,8 @@ export class NdJson implements JetpackSerializer<unknown[], any[]> {
   validate = (input: unknown) => Array.isArray(input);
   parse(data: string) {
     const lines = data.trim().split('\n');
-    return lines.map((line) => JSON.parse(line, this.reviver));
+    const reviver = this.reviver ?? jsonDateParser;
+    return lines.map((line) => JSON.parse(line, reviver));
   };
   stringify(data: unknown[]) {
     return data.map((item) => JSON.stringify(item, undefined, 0)).join('\n');
