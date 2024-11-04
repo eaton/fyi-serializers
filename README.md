@@ -15,7 +15,7 @@ None of these serializers are meant to be used with large quantities of data. Fi
 - **`ejson`**, a JSON variant used by MongoDB that can roundtrip dates, regexes, and buffers, via the [ejson](https://github.com/primus/EJSON) project.
 - **`frontmatter`** in markdown files, in either JSON or YAML format, via the [grey-matter](https://github.com/jonschlinkert/gray-matter) project.
 - **`ini`**, the old reliable, via the [ini](https://github.com/npm/ini) project.
-- **`json`**, **`json5`**, and **`nsjson`**, via the [json5](https://github.com/json5/json5) project.
+- **`json`**, **`json5`**, and **`nsjson`**, via the [json5](https://github.com/json5/json5) project. A convenience Reviver — .
 - **`php`**. Yeah, various PHP-based CMSs like Wordpress and Drupal have a tendency to jam internal configuration data into DB tables using PHP's serialize/deserialize functions. The code to decihper these little bundles of joy descends from [php-js](http://phpjs.org/); I updated it with additional type-checking typing and error handling.
 - **`plist`**, the XML doctype Apple uses to store tons of MacOS config files, via the [plist](https://github.com/TooTallNate/plist.js) project.
 - **`toml`**, GitHub founder Tom Preston-Warner's personal config file language, via the [@iarna/toml](https://github.com/iarna/iarna-toml) project.
