@@ -3,15 +3,19 @@ import type {
   ParseOptions,
   ToStringOptions
 } from 'yaml';
+import type { GenericSerializer } from './generic-serializer.js';
 
-import { JetpackSerializer } from './shared-types.js';
+export type YamlOptions = {
+  parse?: ParseOptions,
+  stringify?: ToStringOptions,
+};
 
-export class Yaml implements JetpackSerializer {
-  constructor(public parseOptions: ParseOptions = {}, public stringifyOptions: ToStringOptions = {}) {}
+export class Yaml implements GenericSerializer {
+  constructor(public options: YamlOptions = {}) {}
   parse(input: string) {
-    return parse(input, this.parseOptions);
+    return parse(input, this.options.parse);
   }
   stringify(input: any) {
-    return stringify(input, this.stringifyOptions);
+    return stringify(input, this.options.stringify);
   }
 };

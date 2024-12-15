@@ -1,7 +1,7 @@
 import { stringify, Options as StringifyOptions } from 'csv-stringify/sync';
 import { parse, Options as ParseOptions } from 'csv-parse/sync';
 import is from '@sindresorhus/is';
-import { JetpackSerializer } from './shared-types.js';
+import type { GenericSerializer } from './generic-serializer.js';
 
 const stringifyDefaults: StringifyOptions = {};
 
@@ -13,7 +13,7 @@ const parseDefaults: ParseOptions = {
   trim: true
 };
 
-export class Csv implements JetpackSerializer<unknown[], Record<string, unknown>[]> {
+export class Csv implements GenericSerializer<unknown[], Record<string, unknown>[]> {
   constructor(
     public parseOptions: ParseOptions = parseDefaults,
     public stringifyOptions: StringifyOptions = stringifyDefaults
@@ -33,7 +33,7 @@ export class Csv implements JetpackSerializer<unknown[], Record<string, unknown>
   }
 };
 
-export class Tsv implements JetpackSerializer<unknown[], Record<string, unknown>[]> {
+export class Tsv implements GenericSerializer<unknown[], Record<string, unknown>[]> {
   constructor(
     public parseOptions: ParseOptions = parseDefaults,
     public stringifyOptions: StringifyOptions = stringifyDefaults

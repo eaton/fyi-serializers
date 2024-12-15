@@ -1,7 +1,7 @@
 import { parse, stringify } from '@iarna/toml';
-import { JetpackSerializer } from './shared-types.js';
+import type { GenericSerializer } from './generic-serializer.js';
 
-export class Toml implements JetpackSerializer {
+export class Toml implements GenericSerializer {
   parse = parse;
   stringify = stringify;
 };

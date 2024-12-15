@@ -1,8 +1,8 @@
 import plist, { PlistValue, PlistBuildOptions } from 'plist';
 const { parse, build } = plist;
-import { JetpackSerializer } from './shared-types.js';
+import type { GenericSerializer } from './generic-serializer.js';
 
-export class Plist implements JetpackSerializer<string, PlistValue> {
+export class Plist implements GenericSerializer<string, PlistValue> {
   constructor(public options: PlistBuildOptions = {}) {}
 
   validate = (data: unknown) => true;

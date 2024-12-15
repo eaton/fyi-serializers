@@ -1,7 +1,7 @@
 import { parse, stringify, EncodeOptions } from 'ini';
-import { JetpackSerializer } from './shared-types.js';
+import type { GenericSerializer } from './generic-serializer.js';
 
-export class Ini implements JetpackSerializer {
+export class Ini implements GenericSerializer {
   constructor(public options: EncodeOptions = {}) {}
   parse = parse;
   stringify(input: string) {

@@ -1,6 +1,6 @@
 {
   "name": "@eatonfyi/serializers",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Shared tools for serializing and deserializing data in assorted formats.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -23,7 +23,7 @@
   "scripts": {
     "build": "pkgroll",
     "clean": "shx rm -rf dist",
-    "prepare": "npm run clean && npm run build",
+    "package": "pkgroll --clean-dist --minify",
     "test": "ava"
   },
   "ava": {
@@ -34,15 +34,38 @@
       "--import=tsimp"
     ]
   },
-  "author": "eaton",
+  "author": "Jeff Eaton <jeff@eaton.fyi> (https://eaton.fyi)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eaton/serializers.git"
+  },
+  "keywords": [
+    "serialize",
+    "stringify",
+    "parse",
+    "json5",
+    "ndjson",
+    "php",
+    "ini",
+    "ejson",
+    "toml",
+    "yaml",
+    "csv",
+    "tsv",
+    "yaml",
+    "yml",
+    "frontmatter",
+    "plist",
+    "base64"
+  ],
   "devDependencies": {
     "@types/node": "^20.11.30",
-    "ava": "^6.1.2",
-    "pkgroll": "^2.0.2",
+    "ava": "^6.2.0",
+    "pkgroll": "^2.5.1",
     "shx": "^0.3.4",
-    "tsimp": "^2.0.11",
-    "typescript": "^5.4.3"
+    "tsimp": "^2.0.12",
+    "typescript": "^5.7.2"
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",
@@ -51,17 +74,16 @@
     "@types/iarna__toml": "^2.0.5",
     "@types/ini": "^4.1.0",
     "@types/plist": "^3.0.5",
-    "csv-parse": "^5.5.5",
-    "csv-stringify": "^6.4.6",
+    "csv-parse": "^5.6.0",
+    "csv-stringify": "^6.5.2",
     "ejson": "^2.2.3",
     "empty-deep": "^1.0.0",
-    "entities": "^4.5.0",
+    "entities": "^5.0.0",
     "gray-matter": "^4.0.3",
     "ini": "^4.1.2",
     "json5": "^2.2.3",
-    "php-serialize": "^4.1.1",
+    "php-serialize": "^5.0.1",
     "plist": "^3.1.0",
-    "yaml": "^2.4.1",
-    "zod": "^3.22.4"
+    "yaml": "^2.6.1"
   }
 }

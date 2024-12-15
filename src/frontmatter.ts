@@ -1,6 +1,6 @@
 import matter, { GrayMatterFile, GrayMatterOption } from 'gray-matter';
 import { encode, decode } from 'entities';
-import { JetpackSerializer } from './shared-types.js';
+import type { GenericSerializer } from './generic-serializer.js';
 import { isObject } from '@sindresorhus/is';
 import { emptyDeep } from 'empty-deep';
 
@@ -11,7 +11,7 @@ export type FrontmatterInput = {
 
 type GreyMatterOptions = GrayMatterOption<matter.Input, {}>;
 
-export class Frontmatter implements JetpackSerializer<FrontmatterInput, GrayMatterFile<matter.Input>> {
+export class Frontmatter implements GenericSerializer<FrontmatterInput, GrayMatterFile<matter.Input>> {
   constructor(public options: GreyMatterOptions = {}) {}
 
   validate(data: unknown) {

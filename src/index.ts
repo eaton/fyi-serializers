@@ -8,3 +8,4 @@ export * from './php.js';
 export * from './plist.js';
 export * from './toml.js';
 export * from './yaml.js';
+export * from './generic-serializer.js'

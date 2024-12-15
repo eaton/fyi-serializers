@@ -1,4 +1,4 @@
-import { JetpackSerializer } from './shared-types.js';
+import type { GenericSerializer } from './generic-serializer.js';
 import JSON5 from 'json5';
 
 export type JsonSerializerOptions = {
@@ -19,7 +19,7 @@ export const JsonDateReviver = (key: string, value: unknown) => {
   return value;
 };
 
-export class Json implements JetpackSerializer<unknown, any> {
+export class Json implements GenericSerializer<unknown, any> {
   constructor(public reviver: JsonSerializerOptions['reviver'] | undefined = undefined, public space = 0) {}
   parse(text: string) {
     return JSON.parse(text, this.reviver);
@@ -29,7 +29,7 @@ export class Json implements JetpackSerializer<unknown, any> {
   }
 };
 
-export class Json5 implements JetpackSerializer<unknown, any> {
+export class Json5 implements GenericSerializer<unknown, any> {
   constructor(public reviver: JsonSerializerOptions['reviver'] | undefined = undefined, public space = 0) {}
   parse(text: string) {
     return JSON5.parse(text, this.reviver);
@@ -48,7 +48,7 @@ export class Json5 implements JetpackSerializer<unknown, any> {
  * to file format handling, so it's a win for now. Just don't lean on it for any
  * performance intensive stuff.
  */
-export class NdJson implements JetpackSerializer<unknown[], any[]> {
+export class NdJson implements GenericSerializer<unknown[], any[]> {
   constructor(public reviver: JsonSerializerOptions['reviver'] | undefined = undefined) {}
   validate = (input: unknown) => Array.isArray(input);
   parse(data: string) {
