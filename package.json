@@ -1,7 +1,7 @@
 {
   "name": "@eatonfyi/serializers",
-  "version": "1.2.0",
-  "description": "Shared tools for serializing and deserializing data in assorted formats.",
+  "version": "1.2.1",
+  "description": "Serializers for assorted file and data formats used in the eaton.fyi migration",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -22,7 +22,6 @@
   ],
   "scripts": {
     "build": "pkgroll",
-    "clean": "shx rm -rf dist",
     "package": "pkgroll --clean-dist --minify",
     "test": "ava"
   },
@@ -38,7 +37,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/eaton/serializers.git"
+    "url": "https://github.com/eaton/fyi-serializers.git"
   },
   "keywords": [
     "serialize",
@@ -63,7 +62,6 @@
     "@types/node": "^20.11.30",
     "ava": "^6.2.0",
     "pkgroll": "^2.5.1",
-    "shx": "^0.3.4",
     "tsimp": "^2.0.12",
     "typescript": "^5.7.2"
   },
